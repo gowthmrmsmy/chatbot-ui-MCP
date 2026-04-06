@@ -1,6 +1,7 @@
 import "./App.css";
 import Message from "./Components/message";
 import Quickreply from "./Components/Quickreply";
+import Footer from "./Components/footer";
 
 export default function App() {
   return (
@@ -21,20 +22,7 @@ export default function App() {
         </header>
         <Message />
         <Quickreply />
-        <footer className="chat-footer">
-          <div className="chat-composer">
-            <input
-              type="text"
-              readOnly
-              placeholder="Type a message (wire this up)"
-              className="chat-input"
-              aria-label="Message input"
-            />
-            <button type="button" className="chat-send">
-              Send
-            </button>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   );
