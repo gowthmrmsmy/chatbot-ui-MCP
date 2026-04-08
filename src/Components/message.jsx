@@ -1,10 +1,10 @@
 import "../App.css";
 
-export default function Message() {
+export default function Message({botResponse}) {
   return (
    
     <div className="chat-bubble-system">
-    "This will be the  system messages"
+    {botResponse}  
     </div>
     );
      
