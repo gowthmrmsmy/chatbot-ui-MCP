@@ -5,10 +5,9 @@ import Chatbody from "./Components/Chatbody";
 
 export default function App() {
 
-  const botResponse = (message) => {
-    return `Hello, how can I help you today? ${message}`;
+  function userInput(message) {
+    console.log(message);
   }
-
 
 
   
@@ -16,8 +15,8 @@ export default function App() {
     <div className="chat-page">
       <div className="chat-widget">
         <Header />  
-        <Chatbody botResponse={botResponse}/>
-        <Footer />
+        <Chatbody />
+        <Footer onSend={userInput}/>
       </div>
     </div>
   );
