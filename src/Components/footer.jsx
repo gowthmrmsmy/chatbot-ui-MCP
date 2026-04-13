@@ -1,31 +1,37 @@
 import "../App.css";
+import { useState } from "react";
 
 export default function Footer({onSend}) {
     
   /*const handleSend = (e) =>{
     onSend(e.target.value);
   };*/
-    let currentText ='';
-  
-    function handleSend(e) {
-      currentText = e.target.value;
-   
-    }
 
-    function handleClick() {
-      onSend(currentText);
-    }
-   
+  const[message, setMessage] = useState('');
+
+  const handleSend = (e) =>{
+    setMessage(e.target.value);
+  };
+
+  const handleClick = () =>{
+    onSend(message);
+    setMessage('');
+  };
+    
 
     return(
         <div className="footer-container">
         <div className="chat-composer">
-            <input onChange={handleSend}
+            
+            <input 
+              value={message}
+              onChange={handleSend}
               type="text"
               placeholder="Ask anything"
               className="chat-input"
               aria-label="Message input"
             />
+        
             <button type="button" className="chat-send" onClick={handleClick} >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.8538 7.35375C12.8073 7.40023 12.7522 7.43711 12.6915 7.46228C12.6308 7.48744 12.5657 
