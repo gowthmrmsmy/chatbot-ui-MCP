@@ -8,9 +8,8 @@ export default function Footer({onSend}) {
   };*/
 
   const[message, setMessage] = useState('');
-
-  const handleSend = (e) =>{
-    setMessage(e.target.value);
+  const handleSend = (s) =>{
+    setMessage(s.target.value);
   };
 
   const handleClick = () =>{
