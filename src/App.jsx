@@ -13,10 +13,11 @@ export default function App() {
   useEffect(()=>{
   console.log(messages);
   },[messages]);
+
   const storeMessage=(message)=>{
 
   //setMessages([...messages,message]);//
-  setMessages((prev) =>[...prev,messages]);
+  setMessages((prev) =>[...prev, message]);
   }
 
   
@@ -25,7 +26,7 @@ export default function App() {
     <div className="chat-page">
       <div className="chat-widget">
         <Header />  
-        <Chatbody />
+        <Chatbody messages={messages}/>
         <Footer onSend={storeMessage}/>
       </div>
     </div>

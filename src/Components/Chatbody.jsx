@@ -1,14 +1,22 @@
 import "../App.css";
 import Message from "./message";
 import Quickreply from "./Quickreply";
+import { useState } from "react";
 
 
-export default function Chatbody({botResponse}) {
+export default function Chatbody({messages}) {
+
+    
 
 
-    return(
+    return( 
         <div className='chat-body'>
-            <Message botResponse={botResponse}/>
+            {messages.map((msg,index) => (
+                <div key={index} className='chat-msg-block'>
+                    {msg}
+                </div>
+            ))}
+           
             <Quickreply />
 
         </div>
