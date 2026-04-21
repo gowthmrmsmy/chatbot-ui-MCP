@@ -5,6 +5,7 @@ import Footer from "./Components/footer";
 import Header from "./Components/Header";
 import Chatbody from "./Components/Chatbody";
 
+
 export default function App() {
 
 
@@ -16,8 +17,23 @@ export default function App() {
 
   const storeMessage=(message)=>{
 
+    const text = message.trim()
+    if(!text) return;
+
+    const userMessage ={
+      id: Date.now(),
+      role : 'user',
+      message : text  
+    }
+
+    const systemMessage ={
+      id: Date.now(),
+      role : 'system',
+      message : `You said  ${text}`
+    }
+
   //setMessages([...messages,message]);//
-  setMessages((prev) =>[...prev, message]);
+  setMessages((prev) =>[...prev, userMessage, systemMessage]);
   }
 
   
@@ -28,6 +44,7 @@ export default function App() {
         <Header />  
         <Chatbody messages={messages}/>
         <Footer onSend={storeMessage}/>
+        
       </div>
     </div>
   );
