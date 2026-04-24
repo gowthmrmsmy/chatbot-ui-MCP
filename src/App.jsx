@@ -21,19 +21,23 @@ export default function App() {
     if(!text) return;
 
     const userMessage ={
-      id: Date.now(),
+      id: crypto.randomUUID(),
       role : 'user',
       message : text  
     }
 
     const systemMessage ={
-      id: Date.now(),
+      id: crypto.randomUUID(),
       role : 'system',
       message : `You said  ${text}`
     }
 
   //setMessages([...messages,message]);//
-  setMessages((prev) =>[...prev, userMessage, systemMessage]);
+  setMessages((prev) =>[...prev, userMessage]);
+
+  setTimeout(() => {
+    setMessages((prev) =>[...prev, systemMessage]);
+  }, 800);
   }
 
   

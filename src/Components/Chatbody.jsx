@@ -8,14 +8,14 @@ export default function Chatbody({messages}) {
     const renderMessage = (msg)=>{
         if(msg.role==='user'){
             return(
-                <div className='chat-msg-block'>
+                <div className='chat-msg-block chat-msg-block-user'>
                     <div className='chat-bubble-user'>{msg.message}</div>
                 </div>
             )
         }
         else if(msg.role==='system'){
             return(
-                <div className='chat-msg-block'>
+                <div className='chat-msg-block chat-msg-block-system'>
                     <div className='chat-bubble-system'>{msg.message}</div>
                 </div>
             )
@@ -35,14 +35,12 @@ export default function Chatbody({messages}) {
                     <div className="chat-bubble-system">{msg.message}</div>
                 )}
             </div>*/
-            renderMessage(msg)
+            <div key={msg.id}>
+            {renderMessage(msg)}
+            </div>
+            
         ))}
         
-               
-                
-         
-            <Quickreply />
-
         </div>
     )
 }

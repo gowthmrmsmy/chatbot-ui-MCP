@@ -47,11 +47,22 @@
 }
 
 .chat-msg-block {
-  display: block;
+  display: flex;
+  padding: 16px 16px;
 }
 
 .chat-msg-meta {
   margin: 0;
+}
+
+.chat-msg-block-user {
+display: flex;
+justify-content: flex-end;
+}
+
+.chat-msg-block-system {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .chat-bubble-system {
@@ -59,9 +70,25 @@
   padding: 8px 16px 8px 10px;
   border: none;
   border-radius: 16px;
-  background-color: #F1F2EE
+  background-color: #F1F2EE;
+  white-space: pre-wrap;
+  word-break: break-word; 
+  overflow-wrap: anywhere;
+  delay: 800ms;
+
 }
 
+.chat-bubble-user {
+  max-width: 194px;
+  padding: 8px 16px 8px 10px;
+  border: none;
+  border-radius: 16px;
+  background-color: #0111A1;
+  color: #fff;
+  white-space: pre-wrap;
+  word-break: break-word; 
+  overflow-wrap: anywhere;
+}
 
 
 .chat-quick-reply {
