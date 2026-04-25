@@ -1,10 +1,19 @@
 import "../App.css";
-import Quickreply from "./Quickreply";
+import { useRef } from "react";
+import { useEffect } from "react";
+
 
 
 
 export default function Chatbody({messages}) {
-   
+
+    const boxRef = useRef(null);
+
+    useEffect(()=>{
+        if(!boxRef.current) return;
+        boxRef.current.scrollTop = boxRef.current.scrollHeight;
+    },[messages]);
+
     const renderMessage = (msg)=>{
         if(msg.role==='user'){
             return(
@@ -25,17 +34,17 @@ export default function Chatbody({messages}) {
 
     
     return( 
-        <div className='chat-body'>
+        <div className='chat-body' ref={boxRef}>
            
         {messages.map((msg) => (
             /*<div key={msg.id} className="chat-msg-block">
                 {msg.role === "user" ? (
                     <div className="chat-bubble-user">{msg.message}</div>
                 ) : (
-                    <div className="chat-bubble-system">{msg.message}</div>
+                    <div className="chat-bubble-sy  stem">{msg.message}</div>
                 )}
             </div>*/
-            <div key={msg.id}>
+            <div key={msg.id}> 
             {renderMessage(msg)}
             </div>
             

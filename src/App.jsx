@@ -34,7 +34,6 @@ export default function App() {
 
   //setMessages([...messages,message]);//
   setMessages((prev) =>[...prev, userMessage]);
-
   setTimeout(() => {
     setMessages((prev) =>[...prev, systemMessage]);
   }, 800);
