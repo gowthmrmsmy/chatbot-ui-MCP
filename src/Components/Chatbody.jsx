@@ -1,6 +1,7 @@
 import "../App.css";
 import { useRef } from "react";
 import { useEffect } from "react";
+import Quickreply from "./Quickreply";
 
 
 
@@ -19,6 +20,7 @@ export default function Chatbody({messages}) {
             return(
                 <div className='chat-msg-block chat-msg-block-user'>
                     <div className='chat-bubble-user'>{msg.message}</div>
+                    
                 </div>
             )
         }
@@ -26,6 +28,7 @@ export default function Chatbody({messages}) {
             return(
                 <div className='chat-msg-block chat-msg-block-system'>
                     <div className='chat-bubble-system'>{msg.message}</div>
+                    <Quickreply quickReplies={msg.quickReplies}/>
                 </div>
             )
         }

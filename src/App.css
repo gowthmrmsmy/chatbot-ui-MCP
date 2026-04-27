@@ -63,6 +63,8 @@ justify-content: flex-end;
 .chat-msg-block-system {
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .chat-bubble-system {
@@ -71,6 +73,9 @@ justify-content: flex-end;
   border: none;
   border-radius: 16px;
   background-color: #F1F2EE;
+  font-family: manrope;
+  font-size: 16px;
+  font-weight: 400;
   white-space: pre-wrap;
   word-break: break-word; 
   overflow-wrap: anywhere;
@@ -85,6 +90,8 @@ justify-content: flex-end;
   border-radius: 16px;
   background-color: #0111A1;
   color: #fff;
+  font-family: manrope;
+  font-weight: 400;
   white-space: pre-wrap;
   word-break: break-word; 
   overflow-wrap: anywhere;
@@ -99,6 +106,8 @@ justify-content: flex-end;
   border-radius: 20px;
   background-color: #f0f0f0;
   font-family: manrope;
+  font-size: 14px;
+  font-weight: 500;
 
 }
 
@@ -160,7 +169,7 @@ justify-content: flex-end;
 }
 
 chat-body::-webkit-scrollbar {
-  width: 8px;
+  width: 2px;
 }
 .chat-body::-webkit-scrollbar-track {
   background: transparent;
