@@ -6,7 +6,7 @@ import Quickreply from "./Quickreply";
 
 
 
-export default function Chatbody({messages}) {
+export default function Chatbody({messages, onSelect}) {
 
     const boxRef = useRef(null);
 
@@ -28,7 +28,7 @@ export default function Chatbody({messages}) {
             return(
                 <div className='chat-msg-block chat-msg-block-system'>
                     <div className='chat-bubble-system'>{msg.message}</div>
-                    <Quickreply quickReplies={msg.quickReplies}/>
+                    <Quickreply quickreplies={msg.quickreplies} onSelect={onSelect}/>
                 </div>
             )
         }
@@ -48,10 +48,12 @@ export default function Chatbody({messages}) {
                 )}
             </div>*/
             <div key={msg.id}> 
+            
             {renderMessage(msg)}
             </div>
             
         ))}
+
         
         </div>
     )

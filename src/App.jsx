@@ -6,6 +6,7 @@ import Header from "./Components/Header";
 import Chatbody from "./Components/Chatbody";
 
 
+
 export default function App() {
 
 
@@ -89,23 +90,43 @@ export default function App() {
     const systemMessage ={
       id: crypto.randomUUID(),
       role : 'system',
-      message : `You said  ${text}`
-    }
+      message : `You said  ${text}`,
+      quickreplies : flow.start.quickReplies,
+      message : flow.start.text
+    };
 
   //setMessages([...messages,message]);//
   setMessages((prev) =>[...prev, userMessage]);
-  setTimeout(() => {
+  setTimeout(() => {    
     setMessages((prev) =>[...prev, systemMessage]);
   }, 800);
   }
 
-  
-  
+  const onQuickReply = (reply) =>{
+    const nextStep = flow[reply.next];
+    if (!nextStep) return;
+    const userMessage = {
+      id: crypto.randomUUID(),
+      role: "user",
+      message: reply.label,
+    };
+    const systemMessage = {
+      id: crypto.randomUUID(),
+      role: "system",
+      message: nextStep.text,
+      quickreplies: nextStep.quickReplies ?? [],
+    };
+    setMessages((prev) => [...prev, userMessage]);
+    setTimeout(() => {
+      setMessages((prev) => [...prev, systemMessage]);
+    }, 400);
+  };
+
   return (
     <div className="chat-page">
       <div className="chat-widget">
         <Header />  
-        <Chatbody messages={messages} flow={flow}/>
+        <Chatbody messages={messages}  onSelect ={onQuickReply}/>
         <Footer onSend={storeMessage}/>
         
       </div>

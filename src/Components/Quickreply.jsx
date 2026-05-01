@@ -1,12 +1,24 @@
 import "../App.css";
 
-export default function Quickreply() {
+export default function Quickreply({quickreplies, onSelect}) {
 
+
+  if (!quickreplies.length) return null; 
     return(
-        
-        
-        <button type="button" className="chat-quick-reply">
-          Here comes the props
+      <>
+        {quickreplies.map((reply) => (
+        <button
+          key={reply.value}
+          type="button"
+          className="chat-quick-reply"
+          onClick={() => onSelect?.(reply)}
+        >
+          {reply.label}
         </button>
+      ))}
+      </>
+      
+        
+        
     )
 }     
